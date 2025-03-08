@@ -104,3 +104,97 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    
+    <!-- FullCalendar CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                <li><a href="#events" onclick="scrollToSection('events')">Events</a></li>
+                <li><a href="#calendar" onclick="scrollToSection('calendar')">Calendar</a></li>
+                <li><a href="#payment" onclick="window.location.href='payment.html'">Payment</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <h2>Unforgettable Events Await You!</h2>
+        <p>Experience the best event setups with premium services for up to 16 guests, starting at ₹45,000.</p>
+        <button class="btn-primary" onclick="scrollToSection('events')">Explore Now</button>
+    </section>
+    
+    <section id="events" class="event-list">
+        <h2>Upcoming Events</h2>
+        <div class="event">
+            <img src="pool-party.jpg" alt="Pool Party">
+            <h3>Pool Party</h3>
+            <p>Enjoy a luxurious poolside experience with music, drinks, and fun.</p>
+        </div>
+        <div class="event">
+            <img src="fun-party.jpg" alt="Fun Party">
+            <h3>Fun Party</h3>
+            <p>Experience thrilling games, interactive activities, and non-stop entertainment.</p>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar">
+        <h2>Event Calendar</h2>
+        <div id="eventCalendar"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Event Management | Designed for a Premium Experience</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('eventCalendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: [
+            { title: 'Pool Party', start: '2025-03-15' },
+            { title: 'Fun Party', start: '2025-03-20' }
+        ]
+    });
+    calendar.render();
+});
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+#calendar {
+    background: #29294d;
+    padding: 50px;
+    text-align: center;
+    color: white;
+}
+#eventCalendar {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+git add .
+git commit -m "Added event calendar"
+git push origin main
+
